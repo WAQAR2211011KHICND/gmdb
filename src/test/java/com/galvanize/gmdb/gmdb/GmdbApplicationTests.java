@@ -2,12 +2,21 @@ package com.galvanize.gmdb.gmdb;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.then;
+import static org.mockito.Mockito.times;
+
+
+@RunWith(MockitoJUnitRunner.class)
 @SpringBootTest
 public class GmdbApplicationTests {
+	@Mock
+	MovieRepository movieRepository;
 
 	// Stories for this project are shown below in order of value, with the highest value listed first.
     // This microservice will contain the CRUD operations required to interact with the GMDB movie database.
@@ -16,6 +25,22 @@ public class GmdbApplicationTests {
     // 1. As a user
     //    I can GET a list of movies from GMDB that includes Movie ID | Movie Title | Year Released | Genre | Runtime
     //    so that I can see the list of available movies.
+	@Test
+	public void getMovieShouldReturnAListOfMovies() {
+
+	    //Setup
+        given(movieRepository.findAll()).willReturn(any());
+
+        MoviesController sut = new MoviesController(movieRepository);
+
+	    
+	    //Execute
+	    Iterable<Movie> movies = sut.all();
+	    
+	    //Assert
+		then(movieRepository).should(times(1)).findAll();
+	    //Teardown
+	}
     //
     // 2. As a user
     //    I can provide a movie ID and get back the record shown in story 1, plus a list of reviews that contains Review ID | Movie ID | Reviewer ID | Review Text | DateTime last modified
