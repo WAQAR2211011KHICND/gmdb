@@ -16,7 +16,8 @@ public class GmdbApplicationTests {
     //    so that I can see the list of available movies.
     //
     // 2. As a user
-    //    I can provide a movie ID and get back the record shown in story 1, plus a list of reviews that contains Review ID | Movie ID | Reviewer ID | Review Text | DateTime last modified
+    //    I can provide a movie ID and get back the record shown in story 1,
+    //    plus a list of reviews that contains Review ID | Movie ID | Reviewer ID | Review Text | DateTime last modified
     //    so that I can read the reviews for a movie.
     //
     // 3. As a user
@@ -33,7 +34,6 @@ public class GmdbApplicationTests {
     //
     // 6. As a reviewer
     //    I can delete a review by providing my reviewer ID and a review ID
-    //    So that I can remove reviews I no longer wish to share.
     //
     // 7. As a reviewer
     //    I can update a review by providing my reviewer ID, a movie ID and my review text.
