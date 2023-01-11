@@ -68,7 +68,7 @@ public class ReviewerController {
         reviewer.setJoinDate(new Date());
         return ResponseEntity.ok().body(this.reviewerRepository.save(reviewer));
     }
-    
+
 
     
     //
@@ -96,7 +96,6 @@ public class ReviewerController {
             return ResponseEntity.accepted().build();
             
         } catch (Exception e) {
-            // TODO: handle exception
             return ResponseEntity.badRequest().build();
         }
 

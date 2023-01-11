@@ -66,7 +66,6 @@ public class AdminController {
             movieRepository.deleteById(id);
             return ResponseEntity.accepted().build();
         } catch (Exception e) {
-            // TODO: handle exception
             return ResponseEntity.badRequest().build();
         }
     }
