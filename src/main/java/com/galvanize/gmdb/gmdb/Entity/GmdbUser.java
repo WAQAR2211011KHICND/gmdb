@@ -19,7 +19,7 @@ public class GmdbUser {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-     @Setter private Long id;
+    @Getter @Setter private Long id;
 
     @Getter @Setter private String username;
     
