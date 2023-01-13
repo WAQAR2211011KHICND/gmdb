@@ -36,7 +36,6 @@ public class MovieController {
     //    I can provide a movie ID and get back the record shown in story 1,
     //    plus a list of reviews that contains Review ID | Movie ID | Reviewer ID | Review Text | DateTime last modified
     //    so that I can read the reviews for a movie.
-    //
     @GetMapping("/{id}")
     public ResponseEntity<Movies> getMovie(@PathVariable Long id){
         return ResponseEntity.ok().body(this.movieRepository.findById(id).get());

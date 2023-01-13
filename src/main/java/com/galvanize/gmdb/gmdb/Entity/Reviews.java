@@ -21,8 +21,6 @@ public class Reviews {
     
     @Getter @Setter private String review;
 
-    // @Temporal(TemporalType.DATE)
-    // @Getter @Setter private Date Modified;     
     @Getter @Setter private String Modified;     
 
     @ManyToOne
@@ -61,6 +59,14 @@ public class Reviews {
     public Long getReviewerId(){
         return this.Reviewer.getId();
     }
+
+    public Reviews(){}
+
+    public Reviews( String review) {
+        this.review = review;
+        // this.movies = movies;
+    }
+
 
 
 }

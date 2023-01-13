@@ -45,7 +45,6 @@ public class ReviewerController {
     //    so that I can see details about a particular reviewer.
     @GetMapping("/{id}")
     public ResponseEntity<GmdbUser> getReviewer(@PathVariable Long id){
-
         Optional<GmdbUser> reviewer = reviewerRepository.findById(id);
         if(reviewer.isPresent() && reviewer.get().getRole().equals("Reviewer")){
             return ResponseEntity.ok().body(reviewer.get());
@@ -53,7 +52,6 @@ public class ReviewerController {
             return ResponseEntity.badRequest().build();
         }
     }
-
 
 
     // 4. As a user
@@ -106,7 +104,8 @@ public class ReviewerController {
     //     a movie ID and my review text.
     //    So that I can modify the opinion I'm sharing with others.
     @PutMapping("/{reviewerId}")
-    public ResponseEntity<Reviews> updateReview(@PathVariable Long reviewerId,
+    public ResponseEntity<Reviews> updateReview(
+                             @PathVariable Long reviewerId,
                              @PathParam("movieId") Long movieId, 
                              @RequestBody Reviews reviews
                              ){       

@@ -33,5 +33,21 @@ public class Movies {
     @OneToMany(mappedBy = "movies")
     // @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @Getter @Setter private List<Reviews> reviews;
+
+/**
+ * 
+ * @param title
+ * @param releasedYear
+ * @param genre
+ * @param runtime
+ */
+    public Movies( String Title, int ReleasedYear, String Genre, String Runtime) {
+        this.Title = Title;
+        this.ReleasedYear = ReleasedYear;
+        this.Genre = Genre;
+        this.Runtime = Runtime;
+    }
+
+    public Movies(){}
     
 }

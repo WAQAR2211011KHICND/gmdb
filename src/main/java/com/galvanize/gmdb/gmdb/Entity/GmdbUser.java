@@ -19,13 +19,14 @@ public class GmdbUser {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter @Setter private Long id;
+     @Setter private Long id;
 
     @Getter @Setter private String username;
     
     @Getter @Setter private String role;
 
     @Getter @Setter private Date joinDate;
+
 
     @JsonIgnore
     @OneToMany(mappedBy = "Reviewer")
@@ -36,4 +37,12 @@ public class GmdbUser {
         return Long.valueOf( this.reviews.size() );
     }
 
+    public GmdbUser(){}
+
+    public GmdbUser( String username, String role, Date joinDate) {
+        this.username = username;
+        this.role = role;
+        this.joinDate = joinDate;
+    }
+    
 }
